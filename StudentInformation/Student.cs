@@ -19,10 +19,11 @@ namespace StudentInformation
         public string Gender { get; set; }
         public String ProgramEnrolled { get; set; }
         public DateTime RegistrationDate { get; set; }
+        
 
         public void Add(Student info)
         {
-            info.Id = DateTime.Now.Millisecond;       
+            info.Id = DateTime.Now.Millisecond;
             string data = JsonConvert.SerializeObject(info, Formatting.None);
             Utility.WriteToTextFile(_filePath, data);
 
@@ -71,30 +72,45 @@ namespace StudentInformation
             string d = Utility.ReadFromTextFile(_filePath);
             if (d != null)
             {
-                List<Student> lst = JsonConvert.DeserializeObject<List<Student>>(d);
-                String temp;
-
-                // Sorting strings using bubble sort 
-                for (int j = 0; j < lst.Count - 1; j++)
-                {
-                    for (int i = j + 1; i < lst.Count; i++)
-                    {
-                        if (lst[j].Name.CompareTo(lst[i].Name) > 0)
-                        {
-                            temp = lst[j].Name;
-                            lst[j].Name = lst[i].Name;
-                            lst[i].Name = temp;
-                        }
-                    }
-                }
+                List<Student> lst = JsonConvert.DeserializeObject<List<Student>>(d);                
                 return lst;
             }
             return null;
         }
-                  
-           
+        public List<Student> sortByName(List<Student> lst)
+        {
+            String temp;
+            for (int j = 0; j < lst.Count - 1; j++)
+            {
+                for (int i = j + 1; i < lst.Count; i++)
+                {
+                    if (lst[j].Name.CompareTo(lst[i].Name) > 0)
+                    {
+                        temp = lst[j].Name;
+                        lst[j].Name = lst[i].Name;
+                        lst[i].Name = temp;
+                    }
+                }
+            }
+            return lst;
+        }
+        public List<Student> sortByDate(List<Student> lst)
+        {
+            DateTime temp;
+            for (int j = 0; j < lst.Count - 1; j++)
+            {
+                for (int i = j + 1; i < lst.Count; i++)
+                {
+                    if (lst[j].RegistrationDate.CompareTo(lst[i].RegistrationDate) > 0)
+                    {
+                        temp = lst[j].RegistrationDate;
+                        lst[j].RegistrationDate = lst[i].RegistrationDate;
+                        lst[i].RegistrationDate = temp;
+                    }
+                }
+            }
+            return lst;
 
-
-
-    }
+        }
+}
 }

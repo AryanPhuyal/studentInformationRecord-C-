@@ -24,6 +24,8 @@ namespace StudentInformation
 
         public void btnHomeClicked()
         {
+            CmbSort.Visible = true;
+            BtnSort.Visible = true;
             SidePanel.Top = BtnHome.Top;
             SidePanel.Height = BtnHome.Height;
             this.home1.BringToFront();
@@ -33,6 +35,7 @@ namespace StudentInformation
             this.home1.Visible = true;
             this.addStudent1.Visible = false;
             this.chart1.Visible = false;
+            
         }
         private void BtnHome_Click(object sender, EventArgs e)
         {
@@ -41,12 +44,15 @@ namespace StudentInformation
         }
         private void btnAddStudentClicked()
         {
+            CmbSort.Visible = false;
+            BtnSort.Visible = false;
             SidePanel.Top = BtnAddStudent.Top;
             SidePanel.Height = BtnAddStudent.Height;
             this.addStudent1.BringToFront();
             this.home1.Visible = false;
             this.addStudent1.Visible = true;
             this.chart1.Visible = false;
+            
         }
         private void  Chart() {
             Student obj = new Student();
@@ -97,8 +103,26 @@ namespace StudentInformation
 
         public void BindGrid()
         {
+            String sort;
+            try
+            {
+                sort = CmbSort.SelectedItem.ToString();
+
+            }
+            catch
+            {
+                sort = "";
+            }
             Student obj = new Student();
             List<Student> listStudents = obj.List();
+            if (sort == "Name")
+            {
+                List<Student> list = obj.sortByName(listStudents);
+            }
+            if (sort == "Registration Date")
+            {
+                List<Student> list = obj.sortByDate(listStudents);
+            }
             DataTable dt = Utility.ConvertToDataTable(listStudents);
             home1.DGVStudentDetail.DataSource = dt;
             chart1.BindChart(listStudents);
@@ -106,16 +130,24 @@ namespace StudentInformation
 
         private void BtnChart_Click(object sender, EventArgs e)
         {
+            CmbSort.Visible = false;
+            BtnSort.Visible = false;
             SidePanel.Top = BtnChart.Top;
             SidePanel.Height = BtnChart.Height;
             this.chart1.BringToFront();
             this.home1.Visible = false;
             this.addStudent1.Visible = false;
             this.chart1.Visible = true;
+           
 
 
         }
 
-       
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            BindGrid();
+
+        }
+        
     }
 }

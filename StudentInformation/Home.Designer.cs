@@ -34,6 +34,10 @@
             // 
             // DGVStudentDetail
             // 
+            this.DGVStudentDetail.AllowUserToAddRows = false;
+            this.DGVStudentDetail.AllowUserToDeleteRows = false;
+            this.DGVStudentDetail.AllowUserToResizeColumns = false;
+            this.DGVStudentDetail.AllowUserToResizeRows = false;
             this.DGVStudentDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVStudentDetail.Location = new System.Drawing.Point(0, -3);
             this.DGVStudentDetail.Name = "DGVStudentDetail";

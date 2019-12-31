@@ -38,10 +38,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CmbSort = new System.Windows.Forms.ComboBox();
+            this.BtnSort = new System.Windows.Forms.Button();
             this.home1 = new StudentInformation.Home();
             this.chart1 = new StudentInformation.Chart();
             this.addStudent1 = new StudentInformation.AddStudent();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -152,6 +154,42 @@
             this.panel4.Size = new System.Drawing.Size(132, 118);
             this.panel4.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Ravie", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(344, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(734, 86);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "IslingTon College";
+            // 
+            // CmbSort
+            // 
+            this.CmbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSort.FormattingEnabled = true;
+            this.CmbSort.Items.AddRange(new object[] {
+            "Name",
+            "Registration Date"});
+            this.CmbSort.Location = new System.Drawing.Point(435, 128);
+            this.CmbSort.Name = "CmbSort";
+            this.CmbSort.Size = new System.Drawing.Size(121, 21);
+            this.CmbSort.TabIndex = 8;
+            this.CmbSort.Visible = false;
+            // 
+            // BtnSort
+            // 
+            this.BtnSort.Location = new System.Drawing.Point(605, 128);
+            this.BtnSort.Name = "BtnSort";
+            this.BtnSort.Size = new System.Drawing.Size(75, 23);
+            this.BtnSort.TabIndex = 9;
+            this.BtnSort.Text = "Sort";
+            this.BtnSort.UseVisualStyleBackColor = true;
+            this.BtnSort.Visible = false;
+            this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
+            // 
             // home1
             // 
             this.home1.Location = new System.Drawing.Point(184, 166);
@@ -176,18 +214,6 @@
             this.addStudent1.Size = new System.Drawing.Size(833, 385);
             this.addStudent1.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Ravie", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(344, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(734, 86);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "IslingTon College";
-            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +221,8 @@
             this.BackgroundImage = global::StudentInformation.Properties.Resources.slider1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1163, 552);
+            this.Controls.Add(this.BtnSort);
+            this.Controls.Add(this.CmbSort);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.home1);
             this.Controls.Add(this.chart1);
@@ -227,6 +255,8 @@
         private Home home1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbSort;
+        private System.Windows.Forms.Button BtnSort;
     }
 }
 
