@@ -37,7 +37,7 @@ namespace StudentInformation
                 ProgramEnrolled.Name = "Gender";
                 ProgramEnrolled.Series["Series1"].XValueMember = "enrolled";
                 ProgramEnrolled.Series["Series1"].YValueMembers = "Count";
-                this.ProgramEnrolled.Titles.Remove(this.studentChart.Titles.FirstOrDefault());
+                this.ProgramEnrolled.Titles.Remove(this.ProgramEnrolled.Titles.FirstOrDefault());
                 this.ProgramEnrolled.Titles.Add("Program Enrolled ");
                 ProgramEnrolled.Series["Series1"].IsValueShownAsLabel = true;
 

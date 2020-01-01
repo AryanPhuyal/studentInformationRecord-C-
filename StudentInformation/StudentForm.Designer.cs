@@ -44,6 +44,7 @@
             this.home1 = new StudentInformation.Home();
             this.chart1 = new StudentInformation.Chart();
             this.addStudent1 = new StudentInformation.AddStudent();
+            this.BtnReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.SidePanel);
+            this.panel1.Controls.Add(this.BtnReport);
             this.panel1.Controls.Add(this.BtnChart);
             this.panel1.Controls.Add(this.BtnAddStudent);
             this.panel1.Controls.Add(this.BtnHome);
@@ -214,6 +216,20 @@
             this.addStudent1.Size = new System.Drawing.Size(833, 385);
             this.addStudent1.TabIndex = 1;
             // 
+            // BtnReport
+            // 
+            this.BtnReport.FlatAppearance.BorderSize = 0;
+            this.BtnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReport.ForeColor = System.Drawing.Color.White;
+            this.BtnReport.Location = new System.Drawing.Point(0, 257);
+            this.BtnReport.Name = "BtnReport";
+            this.BtnReport.Size = new System.Drawing.Size(162, 61);
+            this.BtnReport.TabIndex = 1;
+            this.BtnReport.Text = "Report";
+            this.BtnReport.UseVisualStyleBackColor = true;
+            this.BtnReport.Click += new System.EventHandler(this.BtnReport_Click);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,6 +273,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbSort;
         private System.Windows.Forms.Button BtnSort;
+        private System.Windows.Forms.Button BtnReport;
     }
 }
 

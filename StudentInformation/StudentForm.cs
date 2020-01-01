@@ -138,16 +138,23 @@ namespace StudentInformation
             this.home1.Visible = false;
             this.addStudent1.Visible = false;
             this.chart1.Visible = true;
-           
-
-
         }
 
         private void BtnSort_Click(object sender, EventArgs e)
         {
             BindGrid();
-
         }
-        
+
+        private void BtnReport_Click(object sender, EventArgs e)
+        {
+            CmbSort.Visible = false;
+            BtnSort.Visible = false;
+            SidePanel.Top = BtnReport.Top;
+            SidePanel.Height = BtnReport.Height;
+            this.chart1.BringToFront();
+            this.home1.Visible = false;
+            this.addStudent1.Visible = false;
+            this.chart1.Visible = true;
+        }
     }
 }

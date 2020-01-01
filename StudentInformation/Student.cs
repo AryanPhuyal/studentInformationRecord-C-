@@ -62,11 +62,7 @@ namespace StudentInformation
             //invoking method of utility class 
             Utility.WriteToTextFile(_filePath, data, false, count);
         }
-        public Student Detail(int id)
-        {
-            Student obj = new Student();
-            return obj;
-        }
+        
         public List<Student> List()
         {
             string d = Utility.ReadFromTextFile(_filePath);
@@ -79,16 +75,16 @@ namespace StudentInformation
         }
         public List<Student> sortByName(List<Student> lst)
         {
-            String temp;
+            Student temp;
             for (int j = 0; j < lst.Count - 1; j++)
             {
                 for (int i = j + 1; i < lst.Count; i++)
                 {
                     if (lst[j].Name.CompareTo(lst[i].Name) > 0)
                     {
-                        temp = lst[j].Name;
-                        lst[j].Name = lst[i].Name;
-                        lst[i].Name = temp;
+                        temp = lst[j];
+                        lst[j] = lst[i];
+                        lst[i] = temp;
                     }
                 }
             }
@@ -96,16 +92,16 @@ namespace StudentInformation
         }
         public List<Student> sortByDate(List<Student> lst)
         {
-            DateTime temp;
+            Student temp;
             for (int j = 0; j < lst.Count - 1; j++)
             {
                 for (int i = j + 1; i < lst.Count; i++)
                 {
                     if (lst[j].RegistrationDate.CompareTo(lst[i].RegistrationDate) > 0)
                     {
-                        temp = lst[j].RegistrationDate;
-                        lst[j].RegistrationDate = lst[i].RegistrationDate;
-                        lst[i].RegistrationDate = temp;
+                        temp = lst[j];
+                        lst[j] = lst[i];
+                        lst[i] = temp;
                     }
                 }
             }
