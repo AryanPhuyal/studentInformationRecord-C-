@@ -29,6 +29,7 @@ namespace StudentInformation
                 String address = TxtAddress.Text;
                 String email = TxtEmail.Text;
                 String programEnrolled = CmbEnrolled.SelectedItem.ToString();
+                String enrolledStatus = CbEnrollStatus.SelectedItem.ToString();
                 DateTime enrolledDate = DpRegistrationDate.Value;
                 string contact = TxtContact.Text;
                 string gender= RbFemale.Checked?"Female":"Male";
@@ -41,6 +42,7 @@ namespace StudentInformation
                 obj.BirthDate = DTPDateOfBirth.Value;
                 obj.ContactNo = contact;
                 obj.Gender = gender;
+                obj.Status = enrolledStatus;
                 if (BtnAdd.Text != "Edit")
                 {
                     obj.Add(obj);
@@ -53,7 +55,7 @@ namespace StudentInformation
                     MainForm.btnHomeClicked();  
 
                 }
-                this.MainForm.BindGrid();
+                MainForm.BindGrid();
                 Clear();
 
 
@@ -115,7 +117,17 @@ namespace StudentInformation
                 LblEnrolled_Error.Text = "Select Program which you wish to Enroll";
                 validation_result = false;
             }
-            if(!RbFemale.Checked && !RbMail.Checked)
+            try
+            {
+                CbEnrollStatus.SelectedItem.ToString();
+
+            }
+            catch
+            {
+                lblErrorEnrollStatus.Text = "Select Program which you wish to Enroll";
+                validation_result = false;
+            }
+            if (!RbFemale.Checked && !RbMail.Checked)
             {
                 validation_result = false;
                 LblGender_Error.Text = "Please Select Any gender";
@@ -137,6 +149,10 @@ namespace StudentInformation
         {
             MainForm.Delete(int.Parse(TextId.Text));
             MainForm.btnHomeClicked();
+        }
+
+        private void StudentInfoGB_Enter(object sender, EventArgs e)
+        {
 
         }
     }

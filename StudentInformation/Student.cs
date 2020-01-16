@@ -19,6 +19,7 @@ namespace StudentInformation
         public string Gender { get; set; }
         public String ProgramEnrolled { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public String Status { get; set; } 
         
 
         public void Add(Student info)
@@ -73,7 +74,7 @@ namespace StudentInformation
             }
             return null;
         }
-        public List<Student> sortByName(List<Student> lst)
+        public List<Student> SortByName(List<Student> lst)
         {
             Student temp;
             for (int j = 0; j < lst.Count - 1; j++)
@@ -90,7 +91,7 @@ namespace StudentInformation
             }
             return lst;
         }
-        public List<Student> sortByDate(List<Student> lst)
+        public List<Student> SortByDate(List<Student> lst)
         {
             Student temp;
             for (int j = 0; j < lst.Count - 1; j++)

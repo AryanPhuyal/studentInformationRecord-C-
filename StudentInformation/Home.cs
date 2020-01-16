@@ -13,7 +13,8 @@ namespace StudentInformation
     public partial class Home : UserControl
     {
         public StudentForm MainForm { get; set; }
-        public Home(){
+        public Home()
+        {
             InitializeComponent();
         }
       

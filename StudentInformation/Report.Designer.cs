@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.StudentReport = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentReport)).BeginInit();
             this.SuspendLayout();
+            // 
+            // StudentReport
+            // 
+            this.StudentReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentReport.Location = new System.Drawing.Point(3, 3);
+            this.StudentReport.Name = "StudentReport";
+            this.StudentReport.Size = new System.Drawing.Size(350, 368);
+            this.StudentReport.TabIndex = 0;
             // 
             // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.StudentReport);
             this.Name = "Report";
-            this.Size = new System.Drawing.Size(948, 374);
+            this.Size = new System.Drawing.Size(357, 374);
+            ((System.ComponentModel.ISupportInitialize)(this.StudentReport)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        public System.Windows.Forms.DataGridView StudentReport;
     }
 }

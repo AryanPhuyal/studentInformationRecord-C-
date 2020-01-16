@@ -42,15 +42,17 @@
             // 
             // studentChart
             // 
+            this.studentChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
             this.studentChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.studentChart.Legends.Add(legend1);
             this.studentChart.Location = new System.Drawing.Point(36, 23);
             this.studentChart.Name = "studentChart";
+            this.studentChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Gender";
             this.studentChart.Series.Add(series1);
             this.studentChart.Size = new System.Drawing.Size(300, 300);
             this.studentChart.TabIndex = 0;
@@ -64,9 +66,11 @@
             this.ProgramEnrolled.Legends.Add(legend2);
             this.ProgramEnrolled.Location = new System.Drawing.Point(402, 23);
             this.ProgramEnrolled.Name = "ProgramEnrolled";
+            this.ProgramEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Course";
+            series2.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.ProgramEnrolled.Series.Add(series2);
             this.ProgramEnrolled.Size = new System.Drawing.Size(300, 300);
             this.ProgramEnrolled.TabIndex = 1;

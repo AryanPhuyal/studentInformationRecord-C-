@@ -35,11 +35,11 @@ namespace StudentInformation
 
                 ProgramEnrolled.DataSource = dt1;
                 ProgramEnrolled.Name = "Gender";
-                ProgramEnrolled.Series["Series1"].XValueMember = "enrolled";
-                ProgramEnrolled.Series["Series1"].YValueMembers = "Count";
+                ProgramEnrolled.Series["Course"].XValueMember = "enrolled";
+                ProgramEnrolled.Series["Course"].YValueMembers = "Count";
                 this.ProgramEnrolled.Titles.Remove(this.ProgramEnrolled.Titles.FirstOrDefault());
                 this.ProgramEnrolled.Titles.Add("Program Enrolled ");
-                ProgramEnrolled.Series["Series1"].IsValueShownAsLabel = true;
+                ProgramEnrolled.Series["Course"].IsValueShownAsLabel = true;
 
                 var result = lst
                     .GroupBy(l => l.Gender)
@@ -52,11 +52,11 @@ namespace StudentInformation
 
                 studentChart.DataSource = dt;
                 studentChart.Name = "Gender";
-                studentChart.Series["Series1"].XValueMember = "Gender";
-                studentChart.Series["Series1"].YValueMembers = "Count";
+                studentChart.Series["Gender"].XValueMember = "Gender";
+                studentChart.Series["Gender"].YValueMembers = "Count";
                 this.studentChart.Titles.Remove(this.studentChart.Titles.FirstOrDefault());
                 this.studentChart.Titles.Add("Gender Chart");
-                studentChart.Series["Series1"].IsValueShownAsLabel = true;
+                studentChart.Series["Gender"].IsValueShownAsLabel = true;
 
 
 

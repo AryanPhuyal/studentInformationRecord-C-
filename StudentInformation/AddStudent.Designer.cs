@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,12 +43,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.DpRegistrationDate = new System.Windows.Forms.DateTimePicker();
             this.BtnAdd = new System.Windows.Forms.Button();
-            this.AddStudentErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.RbMail = new System.Windows.Forms.RadioButton();
             this.RbFemale = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.StudentInfoGB = new System.Windows.Forms.GroupBox();
+            this.lblErrorEnrollStatus = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CbEnrollStatus = new System.Windows.Forms.ComboBox();
             this.TextId = new System.Windows.Forms.TextBox();
             this.DTPDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.BtnDelete = new System.Windows.Forms.Button();
@@ -62,8 +63,8 @@
             this.LblAddress_Error = new System.Windows.Forms.Label();
             this.LblLastName_error = new System.Windows.Forms.Label();
             this.LblFirstName_error = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            ((System.ComponentModel.ISupportInitialize)(this.AddStudentErrorProvider)).BeginInit();
             this.StudentInfoGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -213,10 +214,6 @@
             this.BtnAdd.UseVisualStyleBackColor = true;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // AddStudentErrorProvider
-            // 
-            this.AddStudentErrorProvider.ContainerControl = this;
-            // 
             // RbMail
             // 
             this.RbMail.AutoSize = true;
@@ -251,6 +248,9 @@
             // 
             // StudentInfoGB
             // 
+            this.StudentInfoGB.Controls.Add(this.lblErrorEnrollStatus);
+            this.StudentInfoGB.Controls.Add(this.label10);
+            this.StudentInfoGB.Controls.Add(this.CbEnrollStatus);
             this.StudentInfoGB.Controls.Add(this.TextId);
             this.StudentInfoGB.Controls.Add(this.DTPDateOfBirth);
             this.StudentInfoGB.Controls.Add(this.DpRegistrationDate);
@@ -272,6 +272,7 @@
             this.StudentInfoGB.Controls.Add(this.LblFirstName_error);
             this.StudentInfoGB.Controls.Add(this.TxtEmail);
             this.StudentInfoGB.Controls.Add(this.label8);
+            this.StudentInfoGB.Controls.Add(this.panel1);
             this.StudentInfoGB.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentInfoGB.Location = new System.Drawing.Point(3, 3);
             this.StudentInfoGB.Name = "StudentInfoGB";
@@ -279,6 +280,40 @@
             this.StudentInfoGB.TabIndex = 9;
             this.StudentInfoGB.TabStop = false;
             this.StudentInfoGB.Text = "Student Information";
+            this.StudentInfoGB.Enter += new System.EventHandler(this.StudentInfoGB_Enter);
+            // 
+            // lblErrorEnrollStatus
+            // 
+            this.lblErrorEnrollStatus.AutoSize = true;
+            this.lblErrorEnrollStatus.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorEnrollStatus.Location = new System.Drawing.Point(566, 101);
+            this.lblErrorEnrollStatus.Name = "lblErrorEnrollStatus";
+            this.lblErrorEnrollStatus.Size = new System.Drawing.Size(0, 16);
+            this.lblErrorEnrollStatus.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(454, 131);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Enroll Status";
+            // 
+            // CbEnrollStatus
+            // 
+            this.CbEnrollStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEnrollStatus.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbEnrollStatus.FormattingEnabled = true;
+            this.CbEnrollStatus.Items.AddRange(new object[] {
+            "Enrolled",
+            "Pending",
+            "Not Enrolled"});
+            this.CbEnrollStatus.Location = new System.Drawing.Point(569, 123);
+            this.CbEnrollStatus.Name = "CbEnrollStatus";
+            this.CbEnrollStatus.Size = new System.Drawing.Size(200, 24);
+            this.CbEnrollStatus.TabIndex = 20;
             // 
             // TextId
             // 
@@ -315,7 +350,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(430, 182);
+            this.label9.Location = new System.Drawing.Point(451, 182);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 16);
             this.label9.TabIndex = 6;
@@ -401,6 +436,13 @@
             this.LblFirstName_error.Size = new System.Drawing.Size(0, 16);
             this.LblFirstName_error.TabIndex = 18;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(122, 326);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(218, 48);
+            this.panel1.TabIndex = 10;
+            // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,7 +460,6 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "AddStudent";
             this.Size = new System.Drawing.Size(811, 388);
-            ((System.ComponentModel.ISupportInitialize)(this.AddStudentErrorProvider)).EndInit();
             this.StudentInfoGB.ResumeLayout(false);
             this.StudentInfoGB.PerformLayout();
             this.ResumeLayout(false);
@@ -443,7 +484,6 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.DateTimePicker DpRegistrationDate;
         public System.Windows.Forms.Button BtnAdd;
-        public System.Windows.Forms.ErrorProvider AddStudentErrorProvider;
         public System.Windows.Forms.RadioButton RbFemale;
         public System.Windows.Forms.RadioButton RbMail;
         private System.Windows.Forms.Label label8;
@@ -462,5 +502,9 @@
         public System.Windows.Forms.Button BtnDelete;
         public System.Windows.Forms.DateTimePicker DTPDateOfBirth;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblErrorEnrollStatus;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.ComboBox CbEnrollStatus;
     }
 }

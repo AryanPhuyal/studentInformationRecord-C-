@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.BtnReport = new System.Windows.Forms.Button();
             this.BtnChart = new System.Windows.Forms.Button();
             this.BtnAddStudent = new System.Windows.Forms.Button();
             this.BtnHome = new System.Windows.Forms.Button();
@@ -41,10 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CmbSort = new System.Windows.Forms.ComboBox();
             this.BtnSort = new System.Windows.Forms.Button();
+            this.report1 = new StudentInformation.Report();
             this.home1 = new StudentInformation.Home();
             this.chart1 = new StudentInformation.Chart();
             this.addStudent1 = new StudentInformation.AddStudent();
-            this.BtnReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,20 @@
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 60);
             this.SidePanel.TabIndex = 2;
+            // 
+            // BtnReport
+            // 
+            this.BtnReport.FlatAppearance.BorderSize = 0;
+            this.BtnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReport.ForeColor = System.Drawing.Color.White;
+            this.BtnReport.Location = new System.Drawing.Point(0, 257);
+            this.BtnReport.Name = "BtnReport";
+            this.BtnReport.Size = new System.Drawing.Size(162, 61);
+            this.BtnReport.TabIndex = 1;
+            this.BtnReport.Text = "Report";
+            this.BtnReport.UseVisualStyleBackColor = true;
+            this.BtnReport.Click += new System.EventHandler(this.BtnReport_Click);
             // 
             // BtnChart
             // 
@@ -192,6 +207,14 @@
             this.BtnSort.Visible = false;
             this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
             // 
+            // report1
+            // 
+            this.report1.AutoScroll = true;
+            this.report1.Location = new System.Drawing.Point(477, 166);
+            this.report1.Name = "report1";
+            this.report1.Size = new System.Drawing.Size(356, 374);
+            this.report1.TabIndex = 10;
+            // 
             // home1
             // 
             this.home1.Location = new System.Drawing.Point(184, 166);
@@ -216,20 +239,6 @@
             this.addStudent1.Size = new System.Drawing.Size(833, 385);
             this.addStudent1.TabIndex = 1;
             // 
-            // BtnReport
-            // 
-            this.BtnReport.FlatAppearance.BorderSize = 0;
-            this.BtnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnReport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReport.ForeColor = System.Drawing.Color.White;
-            this.BtnReport.Location = new System.Drawing.Point(0, 257);
-            this.BtnReport.Name = "BtnReport";
-            this.BtnReport.Size = new System.Drawing.Size(162, 61);
-            this.BtnReport.TabIndex = 1;
-            this.BtnReport.Text = "Report";
-            this.BtnReport.UseVisualStyleBackColor = true;
-            this.BtnReport.Click += new System.EventHandler(this.BtnReport_Click);
-            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +246,7 @@
             this.BackgroundImage = global::StudentInformation.Properties.Resources.slider1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1163, 552);
+            this.Controls.Add(this.report1);
             this.Controls.Add(this.BtnSort);
             this.Controls.Add(this.CmbSort);
             this.Controls.Add(this.label1);
@@ -274,6 +284,7 @@
         private System.Windows.Forms.ComboBox CmbSort;
         private System.Windows.Forms.Button BtnSort;
         private System.Windows.Forms.Button BtnReport;
+        private Report report1;
     }
 }
 

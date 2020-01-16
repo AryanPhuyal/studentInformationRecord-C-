@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace StudentInformation
             btnHomeClicked();
             BindGrid();
             Chart();
+            home1.MainForm = this;
+            addStudent1.MainForm = this;
         }
 
         public void btnHomeClicked()
@@ -39,7 +42,6 @@ namespace StudentInformation
         }
         private void BtnHome_Click(object sender, EventArgs e)
         {
-            
             btnHomeClicked();
         }
         private void btnAddStudentClicked()
@@ -117,15 +119,16 @@ namespace StudentInformation
             List<Student> listStudents = obj.List();
             if (sort == "Name")
             {
-                List<Student> list = obj.sortByName(listStudents);
+                List<Student> list = obj.SortByName(listStudents);
             }
             if (sort == "Registration Date")
             {
-                List<Student> list = obj.sortByDate(listStudents);
+                List<Student> list = obj.SortByDate(listStudents);
             }
             DataTable dt = Utility.ConvertToDataTable(listStudents);
             home1.DGVStudentDetail.DataSource = dt;
             chart1.BindChart(listStudents);
+            WeeklyReport(listStudents);
         }
 
         private void BtnChart_Click(object sender, EventArgs e)
@@ -144,17 +147,37 @@ namespace StudentInformation
         {
             BindGrid();
         }
+        private void WeeklyReport(List<Student> lst)
+        {
+            if (lst != null)
+            {
+                var result = lst
+                    .GroupBy(d => new { V = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(d.RegistrationDate, CalendarWeekRule.FirstDay, DayOfWeek.Sunday), d.ProgramEnrolled })
+                    .Select(c1 => new
+                    {
+                        Week = "Week" + c1.Key.V.ToString(),
+                        Faculty = c1.First().ProgramEnrolled,
+                        Total_Student = c1.Count().ToString(),
 
-        private void BtnReport_Click(object sender, EventArgs e)
+                    }).ToList();
+
+                DataTable dt = Utility.ConvertToDataTable(result);
+                report1.StudentReport.DataSource = dt;
+
+            }
+        }
+            private void BtnReport_Click(object sender, EventArgs e)
         {
             CmbSort.Visible = false;
             BtnSort.Visible = false;
             SidePanel.Top = BtnReport.Top;
             SidePanel.Height = BtnReport.Height;
-            this.chart1.BringToFront();
+            this.report1.BringToFront();
             this.home1.Visible = false;
             this.addStudent1.Visible = false;
-            this.chart1.Visible = true;
+            this.chart1.Visible = false;
+            this.report1.Visible = true;
         }
+
     }
 }
